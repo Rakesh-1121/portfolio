@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravichandran Rakesh | Developer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF8F3;
+            --beige: #E8DCC4;
+            --warm-brown: #8B7355;
+            --dark-brown: #4A3F35;
+            --accent-terracotta: #C77350;
+            --soft-white: #FFFFFF;
+            --shadow: rgba(75, 63, 53, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--cream); 
+            color: var(--dark-brown);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navbar */
+        .navbar { 
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--beige);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-brown) !important;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent-terracotta);
+        }
+        
+        /* Hero Section */
+        .hero { 
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(199, 115, 80, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .hero .lead {
+            font-size: 1.3rem;
+            color: var(--warm-brown);
+            font-weight: 400;
+        }
+        
+        /* Buttons */
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--accent-terracotta) 0%, #B86543 100%);
+            color: var(--soft-white);
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(199, 115, 80, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(199, 115, 80, 0.4);
+            color: var(--soft-white);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: var(--soft-white);
+        }
+        
+        .about-card {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--beige);
+        }
+        
+        .about-card h2 {
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .about-card p {
+            color: var(--warm-brown);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background: var(--beige);
+            color: var(--dark-brown);
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Projects Section */
+        #projects {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+        
+        #projects h2 {
+            font-size: 2.8rem;
+            color: var(--dark-brown);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .project-card { 
+            background: var(--soft-white);
+            border: 2px solid var(--beige);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-terracotta);
+            box-shadow: 0 15px 40px rgba(199, 115, 80, 0.2);
+        }
+        
+        .project-card .card-body {
+            padding: 3rem 2rem;
+        }
+        
+        .project-card h3 {
+            color: var(--accent-terracotta);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card p {
+            color: var(--warm-brown);
+            font-size: 1.05rem;
+        }
+        
+        .project-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--beige);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .expand-btn {
+            background: transparent;
+            border: 2px solid var(--accent-terracotta);
+            color: var(--accent-terracotta);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .expand-btn:hover {
+            background: var(--accent-terracotta);
+            color: var(--soft-white);
+        }
+        
+        /* Modal */
+        .modal-content { 
+            background: var(--soft-white);
+            color: var(--dark-brown);
+            border: 2px solid var(--beige);
+            border-radius: 20px;
+        }
+        
+        .modal-header {
+            border-bottom: 2px solid var(--beige);
+            background: var(--cream);
+        }
+        
+        .modal-title {
+            color: var(--dark-brown);
+        }
+        
+        .btn-close {
+            filter: invert(0.3) sepia(1) saturate(2) hue-rotate(10deg);
+        }
+        
+        .carousel-img { 
+            height: 450px;
+            object-fit: contain;
+            background: var(--cream);
+            border-radius: 10px;
+        }
+        
+        .gallery-img { 
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 2px solid var(--beige);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        
+        .modal-body h5 {
+            color: var(--accent-terracotta);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-body p {
+            color: var(--warm-brown);
+            line-height: 1.8;
+        }
+        
+        .modal-body hr {
+            border-color: var(--beige);
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: var(--beige);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        /* Carousel Controls */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(0.3) sepia(1) saturate(2) hue-rotate(10deg);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+            
+            .project-number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">RAKESH<span>.DEV</span></a>
+            <div class="ms-auto">
+                <a href="Resume_only.pdf" target="_blank" class="btn-primary-custom">Download Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="animate-fade-in">Ravichandran Rakesh</h1>
+                <p class="lead">Junior Software Developer | Business & Financial Technology Student</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="about-card">
+                        <h2>About Me</h2>
+                        <p>
+                            I am a final-year <strong>Business and Financial Technology</strong> student at Nanyang Polytechnic, dedicated to bridging the gap between functional code and intuitive user experiences. My technical toolkit includes <strong>Python, JavaScript, and Flask</strong>, along with a strong background in <strong>Data Analytics</strong> and <strong>UX Design</strong>.
+                        </p>
+                        <p>
+                            Outside of tech, I am a competitive athlete in <strong>Ultimate Frisbee and Rugby</strong>. These sports have instilled in me a high level of discipline, resilience, and a "team-first" mentality that I bring to every software project I work on. I thrive in collaborative environments where I can solve complex problems with clean, modern digital solutions.
+                        </p>
+                        <div class="mt-4">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-6">
+                    <div class="card project-card" data-bs-toggle="modal" data-bs-target="#frisbeeModal">
+                        <span class="project-number">01</span>
+                        <div class="card-body text-center">
+                            <h3>NYP Ultimate Frisbee</h3>
+                            <p class="mb-4">Club Recruitment Web Portal</p>
+                            <button class="expand-btn">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card project-card" data-bs-toggle="modal" data-bs-target="#connectGenModal">
+                        <span class="project-number">02</span>
+                        <div class="card-body text-center">
+                            <h3>ConnectGen</h3>
+                            <p class="mb-4">Customer Support & FAQ Management System</p>
+                            <button class="expand-btn">View Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Frisbee Modal -->
+    <div class="modal fade" id="frisbeeModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">NYP Ultimate Frisbee Portal</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src="images/frisbee1.jpg" class="gallery-img" alt="Home Page">
+                            <img src="images/frisbee2.jpg" class="gallery-img" alt="Registration Form">
+                        </div>
+                        <div class="col-lg-6">
+                            <h5>The Challenge</h5>
+                            <p>To digitize the 2026 recruitment process for the NYP Ultimate Frisbee club, replacing manual data tracking with a responsive, user-friendly registration portal.</p>
+                            <hr>
+                            <h5>My Role & Solution</h5>
+                            <p>As the <strong>Front-End Developer</strong>, I designed a multi-page site using <strong>Bootstrap 5</strong>. I implemented a JavaScript-based animated counter to highlight the club's 5 POL-ITE titles and engineered a registration form with local data persistence.</p>
+                            <hr>
+                            <h5>Key Outcomes</h5>
+                            <ul>
+                                <li>100% responsive design across mobile and desktop</li>
+                                <li>Automated registration logic using JavaScript</li>
+                                <li>Enhanced user engagement via an interactive testimonial carousel</li>
+                            </ul>
+                            <hr>
+                            <p><strong>Technologies:</strong></p>
+                            <div>
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">Bootstrap 5</span>
+                                <span class="skill-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connect Gen Modal -->
+    <div class="modal fade" id="connectGenModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">ConnectGen: Support System</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="connectCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#connectCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#connectCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#connectCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#connectCarousel" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#connectCarousel" data-bs-slide-to="4"></button>
+                            <button type="button" data-bs-target="#connectCarousel" data-bs-slide-to="5"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="images/connectgen1.jpg" class="d-block w-100 carousel-img" alt="Dashboard Overview"></div>
+                            <div class="carousel-item"><img src="images/connectgen2.jpg" class="d-block w-100 carousel-img" alt="Waste Analytics"></div>
+                            <div class="carousel-item"><img src="images/connectgen3.jpg" class="d-block w-100 carousel-img" alt="Impact Metrics"></div>
+                            <div class="carousel-item"><img src="images/connectgen4.jpg" class="d-block w-100 carousel-img" alt="Technology Trends"></div>
+                            <div class="carousel-item"><img src="images/connectgen5.jpg" class="d-block w-100 carousel-img" alt="Regional Analysis"></div>
+                            <div class="carousel-item"><img src="images/connectgen6.jpg" class="d-block w-100 carousel-img" alt="Data Insights"></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#connectCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#connectCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <div class="px-3">
+                        <h5>Project Overview</h5>
+                        <p><strong>ConnectGen</strong> is a full-stack customer support and FAQ management system designed to streamline user inquiries and admin responses. The platform bridges users and support teams with an intuitive interface for submitting, tracking, and resolving support requests.</p>
+                        <hr>
+                        <h5>Key Features</h5>
+                        <ul>
+                            <li><strong>User Portal:</strong> Submit support requests, view request history, edit pending requests, and track status updates (Pending, In Progress, Resolved)</li>
+                            <li><strong>Admin Dashboard:</strong> Comprehensive dashboard with real-time statistics, filtering, sorting, and response management capabilities</li>
+                            <li><strong>FAQ System:</strong> Searchable FAQ database with accordion-style interface for quick answers</li>
+                            <li><strong>Status Tracking:</strong> Color-coded status badges and request lifecycle management</li>
+                            <li><strong>Real-time Updates:</strong> Character counter, form validation, and flash message notifications</li>
+                        </ul>
+                        <hr>
+                        <h5>Technical Implementation</h5>
+                        <p>Built using <strong>Flask (Python)</strong> for the backend with session management and database integration. The frontend leverages <strong>Bootstrap 5</strong> for responsive design, <strong>JavaScript</strong> for dynamic filtering/sorting, and <strong>Font Awesome</strong> for iconography. The system includes 6+ interconnected pages with full CRUD functionality.</p>
+                        <hr>
+                        <p><strong>Technologies:</strong></p>
+                        <div>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">Bootstrap 5</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ravichandran Rakesh | Singapore</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
